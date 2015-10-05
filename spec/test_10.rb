@@ -24,6 +24,17 @@ describe Unit do
       expect(enemy_unit).to receive(:damage).with(3)
       @unit.attack!(enemy_unit)
     end
+
+    it "should not attack if enemy is dead" do
+      enemy_unit = Unit.new(0, 5)
+      expect(@unit.attack!(enemy_unit)).to be nil
+    end
+
+    it "cannot attack if it is dead" do
+      @unit.damage(100)
+      enemy_unit = Unit.new(100, 5)
+      expect(@unit.attack!(enemy_unit)).to be nil
+    end
   end
 
   describe '#dead?' do
@@ -40,17 +51,3 @@ describe Unit do
   end
 
 end
-
-
-
-# describe '#dead?' do
-#     # true
-#     it "returns true if health is equal to or below 0" do
-#       dead_unit = @unit.damage(150)
-#       expect(dead_unit).to be_true
-#     end
-#     # # false
-#     # it "returns false if health is greater than 0" do
-#     #   alive_unit = 
-#     # end
-#   end

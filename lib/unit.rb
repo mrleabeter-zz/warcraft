@@ -8,10 +8,14 @@ class Unit
   end
 
   def attack!(enemy)
-    if enemy.is_a?(Unit)
-      enemy.damage(@attack_power)
-    elsif enemy.is_a?(Barracks)
-      enemy.damage(@attack_power / 2)
+    if enemy.dead? || self.dead?
+      nil
+    else
+      if enemy.is_a?(Unit)
+        enemy.damage(@attack_power)
+      elsif enemy.is_a?(Barracks)
+        enemy.damage(@attack_power / 2)
+      end
     end
   end
 
