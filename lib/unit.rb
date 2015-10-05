@@ -8,11 +8,20 @@ class Unit
   end
 
   def attack!(enemy)
-    enemy.damage(@attack_power)
+    if enemy.is_a?(Unit)
+      enemy.damage(@attack_power)
+    elsif enemy.is_a?(Barracks)
+      enemy.damage(@attack_power / 2)
+    end
   end
 
   def damage(attack_power)
     @health_points -= attack_power
+  end
+
+  def dead?
+    # true if it meets the criteria, false otherwise
+    @health_points <= 0
   end
 
 end

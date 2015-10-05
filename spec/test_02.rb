@@ -16,6 +16,8 @@ describe Barracks do
     expect(@barracks.food).to eq(80)
   end
 
-
+  it "starts off with 500 health points" do
+    expect(@barracks.health_points).to eq(500)
+  end
 
 end

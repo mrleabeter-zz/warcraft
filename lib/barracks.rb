@@ -1,13 +1,15 @@
 class Barracks
 
-  GOLD = 1000
-  FOOD = 80
+  STARTING_GOLD = 1000
+  STARTING_FOOD = 80
+  STARTING_HEALTH_POINTS = 500
 
-  attr_reader :gold, :food
+  attr_reader :gold, :food, :health_points
 
   def initialize
-    @gold = GOLD
-    @food = FOOD
+    @gold = STARTING_GOLD
+    @food = STARTING_FOOD
+    @health_points = STARTING_HEALTH_POINTS
   end
 
   def can_train_footman?

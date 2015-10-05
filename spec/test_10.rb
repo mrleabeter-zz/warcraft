@@ -26,4 +26,31 @@ describe Unit do
     end
   end
 
+  describe '#dead?' do
+    # true
+    it "returns true if unit health is equal to or below 0" do
+      @unit.damage(100)
+      expect(@unit.dead?).to be true
+    end
+    # false
+    it "returns false if unit health is greater than 0" do
+      @unit.damage(99)
+      expect(@unit.dead?).to be false 
+    end
+  end
+
 end
+
+
+
+# describe '#dead?' do
+#     # true
+#     it "returns true if health is equal to or below 0" do
+#       dead_unit = @unit.damage(150)
+#       expect(dead_unit).to be_true
+#     end
+#     # # false
+#     # it "returns false if health is greater than 0" do
+#     #   alive_unit = 
+#     # end
+#   end

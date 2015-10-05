@@ -4,8 +4,11 @@ require_relative "unit.rb"
 
 class Footman < Unit
 
+  START_HEALTH_POINTS = 60
+  START_ATTACK_POWER = 10
+
   def initialize
-    super(60, 10)
+    super(START_HEALTH_POINTS, START_ATTACK_POWER)
   end
 
 end

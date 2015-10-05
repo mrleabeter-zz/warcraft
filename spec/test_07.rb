@@ -15,6 +15,11 @@ describe Footman do
       expect(enemy).to receive(:damage).with(10)
       @footman.attack!(enemy)
     end
+    it "should deal 5 (half of AP) damage to the enemy barracks" do
+      enemy = Barracks.new
+      expect(enemy).to receive(:damage).with(5)
+      @footman.attack!(enemy)
+    end
   end
 
   describe "#damage" do
