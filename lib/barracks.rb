@@ -47,6 +47,7 @@ class Barracks
   end
 
   def can_train_siege_engine?
+    # refactored from if statement to be implicit
     gold >= 200 && food >= 3 && lumber >= 60
   end
 
@@ -55,8 +56,17 @@ class Barracks
       @gold -= 200
       @food -= 3
       @lumber -= 60
-      siege_engint = SiegeEngine.new
+      siege_engine = SiegeEngine.new
     end
+  end
+
+  def damage(attack_power)
+    @health_points -= attack_power
+  end
+
+  def dead?
+    # true if it meets the criteria, false otherwise
+    @health_points <= 0
   end
 
 end
