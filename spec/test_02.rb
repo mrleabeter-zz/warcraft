@@ -21,7 +21,7 @@ describe Barracks do
   end
 
   it "starts off with 500 lumber resources" do 
-    expect(@barracks.lumber_supply).to eq(500)
+    expect(@barracks.lumber).to eq(500)
   end
 
 end
